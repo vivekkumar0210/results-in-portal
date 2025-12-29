@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results.in | Premium Job Portal</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- 1. YOUR CUSTOM FONT --- */
+        /* home.html mein style section mein */
+@font-face {
+    font-family: 'NewRocker';
+    src: url('https://fonts.cdnfonts.com/s/14873/NewRocker-Regular.woff') format('woff'); /* Online link use kar lo tension khatam */
+    font-weight: normal;
+    font-style: normal;
+}
+
+        :root {
+            --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.15);
+            --text-white: #ffffff;
+            --accent-cyan: #22d3ee;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body { 
+            background: #0f172a;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.25) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.25) 0px, transparent 50%),
+                radial-gradient(at 50% 100%, rgba(236, 72, 153, 0.2) 0px, transparent 50%),
+                radial-gradient(at 0% 100%, rgba(34, 211, 236, 0.15) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-white);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            min-height: 100vh;
+        }
+
+        /* --- MODERN NAVBAR --- */
+        nav {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            padding: 15px 9%;
+            border-bottom: 1px solid var(--glass-border);
+            position: sticky; top: 0; z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .nav-logo { font-size: 24px; font-weight: 800; text-decoration: none; color: #fff; letter-spacing: -1px; }
+        .nav-logo span { color: #ec4899; }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { text-decoration: none; color: #cbd5e1; font-weight: 700; font-size: 13px; text-transform: uppercase; }
+        .nav-links a:hover { color: #ec4899}
+
+        /* --- MEGA HEADER --- */
+        .mega-header { width: 100%; padding: 10px; text-align: center; }
+        .giant-logo {
+            font-family: 'NewRocker', serif; 
+            font-size: clamp(50px, 10vw, 150px);
+            line-height: 0.9;
+            display: inline-block;
+            background: linear-gradient(to bottom, #22d3ee 30%, #e5e5e5ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 30px rgba(99, 102, 241, 0.4));
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .hero-text {
+            font-size: 20px; font-weight: 700;
+            background: linear-gradient(to right, #22d3ee, #FBBF24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase; letter-spacing: 5px;
+        }
+
+        /* --- SEARCH BAR --- */
+        .search-wrapper { max-width: 700px; margin: 5px auto; padding: 0 20px; }
+        .search-form { 
+            display: flex; background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 20px; padding: 10px;
+            backdrop-filter: blur(30px); transition: 0.4s; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        .search-bar { flex: 1; background: transparent; border: none; padding: 15px 25px; color: #fff; font-size: 18px; outline: none; }
+        .search-btn { background: var(--primary-gradient); color: #fff; border: none; padding: 15px 35px; border-radius: 15px; font-weight: 800; cursor: pointer; }
+
+        /* --- DYNAMIC GRID (A | B | C) --- */
+        /* --- DYNAMIC GRID (Height auto-adjust fix) --- */
+.grid-container {
+    max-width: 1350px; 
+    margin: 0 auto;
+    display: flex; /* Grid ki jagah Flex use karenge */
+    flex-wrap: wrap; /* Mobile par apne aap niche aa jayega */
+    justify-content: center;
+    align-items: flex-start; /* Ye line box ko khali bada hone se rokegi */
+    gap: 25px; 
+    padding: 40px 20px 100px;
+}
+
+.category-box { 
+    flex: 1; /* Sabko barabar jagah milegi par height auto rahegi */
+    min-width: 320px; /* Mobile compatibility ke liye */
+    max-width: 420px;
+    background: var(--glass-bg); 
+    border-radius: 32px; 
+    border: 1px solid var(--glass-border); 
+    overflow: hidden; 
+    backdrop-filter: blur(20px); 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3); 
+    transition: 0.4s;
+}
+        .category-box:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.3); }
+
+        .category-head { 
+            padding: 20px; font-size: 16px; font-weight: 800; background: rgba(255,255,255,0.05); 
+            text-align: center; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid var(--glass-border);
+        }
+
+        .job-list { display: flex; flex-direction: column; }
+        .job-link { 
+            display: block; padding: 18px 25px; text-decoration: none; 
+            color: rgba(255,255,255,0.8); font-weight: 600; font-size: 14px; 
+            border-bottom: 1px solid rgba(255,255,255,0.03); transition: 0.3s; 
+        }
+        .job-link:hover { background: rgba(255,255,255,0.05); color: var(--accent-cyan); padding-left: 35px; }
+
+        .new-tag {
+            background: #ec4899; color: #fff; font-size: 10px; padding: 2px 8px;
+            border-radius: 4px; margin-left: 10px; font-weight: 800;
+        }
+
+        @media (max-width: 1024px) {
+            .grid-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <a href="/" class="nav-logo">RESULTS<span>.IN</span></a>
+    <div class="nav-links">
+        <a href="/">HOME</a>
+        <a href="javascript:void(0)" onclick="filterSection('jobs')">LATEST JOB</a>
+        <a href="javascript:void(0)" onclick="filterSection('results')">LATEST RESULT</a>
+        <a href="javascript:void(0)" onclick="filterSection('admits')">ADMIT CARD</a>
+        
+        <a href="{% url 'about_us' %}">ABOUT US</a>
+        <a href="{% url 'contact_us' %}">CONTACTS</a>
+    </div>
+</nav>
+    <header class="mega-header">
+        <p class="hero-text">SEARCH YOUR JOBS</p>
+        <div class="giant-logo">RESULTS<span>.IN</span></div>
+        
+        <div class="search-wrapper">
+            <form action="/" method="GET" class="search-form">
+                <input type="text" name="q" class="search-bar" placeholder="Search Result, Job or Admit Card...">
+                <button type="submit" class="search-btn">FIND NOW</button>
+            </form>
+        </div>
+    </header>
+
+    <div class="grid-container">
+    <div class="category-box" id="jobs">
+        <div class="category-head" style="color: #4ade80;">💼 Latest Jobs</div>
+        <div class="job-list">
+            {% for item in latest_jobs %}
+            <a href="{% url 'job_detail' item.id %}" class="job-link">
+                {{ item.job_title|default:item.result_title|default:item.admit_title }}
+                <span class="new-tag">new</span>
+            </a>
+            {% empty %}
+            <div style="padding: 20px; text-align: center; color: rgba(255,255,255,0.3); font-size: 13px;">No Jobs Found</div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="category-box" id="results">
+        <div class="category-head" style="color: #22d3ee;">🔥 Latest Results</div>
+        <div class="job-list">
+            {% for item in results %}
+            <a href="{% url 'job_detail' item.id %}" class="job-link">
+                {{ item.result_title|default:item.job_title|default:item.admit_title }}
+            </a>
+            {% empty %}
+            <div style="padding: 20px; text-align: center; color: rgba(255,255,255,0.3); font-size: 13px;">No Results Found</div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="category-box" id="admits">
+        <div class="category-head" style="color: #fbbf24;">🎫 Admit Cards</div>
+        <div class="job-list">
+            {% for item in admit_cards %}
+            <a href="{% url 'job_detail' item.id %}" class="job-link">
+                {{ item.admit_title|default:item.job_title|default:item.result_title }}
+            </a>
+            {% empty %}
+            <div style="padding: 20px; text-align: center; color: rgba(255,255,255,0.3); font-size: 13px;">No Admit Cards</div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<script>
+function filterSection(section) {
+    // HTML mein jo IDs hain wahi yahan use karni hain
+    const jobs = document.getElementById('jobs');
+    const results = document.getElementById('results');
+    const admits = document.getElementById('admits');
+
+    // Pakka karein ki teeno mil gaye hain
+    if (!jobs || !results || !admits) return;
+
+    // Sabko hide kar do
+    jobs.style.display = 'none';
+    results.style.display = 'none';
+    admits.style.display = 'none';
+
+    // Jo click kiya bas usey dikhao
+    if (section === 'jobs') {
+        jobs.style.display = 'block';
+        jobs.style.flex = '1'; // Stretch sahi karne ke liye
+    } else if (section === 'results') {
+        results.style.display = 'block';
+        results.style.flex = '1';
+    } else if (section === 'admits') {
+        admits.style.display = 'block';
+        admits.style.flex = '1';
+    }
+}
+</script>
+
+</body>
+</html>
