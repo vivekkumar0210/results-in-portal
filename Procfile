@@ -1,1 +1,1 @@
-web: gunicorn RESULTS.wsgi
+web: gunicorn results_in.wsgi:application

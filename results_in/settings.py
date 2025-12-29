@@ -27,6 +27,8 @@ SECRET_KEY = 'django-insecure-l6#@s4&*7s(a99dq2(fo29wgo7zwv3w!4z-9(tat&)ph*bdboi
 DEBUG = True
 
 ALLOWED_HOSTS = ['results.in', 'www.results.in', '.render.com']
+# Isse Render ka link aur aapka results.in dono allow ho jayenge
+ALLOWED_HOSTS = ['results-in-portal.onrender.com', 'results.in', 'www.results.in', '127.0.0.1']
 
 
 # Application definition
