@@ -1,17 +1,139 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>About Us</title>
-    </head>
-<body style="background: #0f172a; color: white; font-family: sans-serif;">
-    <div class="container" style="padding: 50px; background: #1a1a2e; border-radius: 15px; margin: 50px auto; max-width: 800px;">
-        <h1 style="color: #22d3ee;">About RESULTS.IN</h1>
-        <p style="font-size: 1.2rem; line-height: 1.6;">
-            Welcome to <strong>RESULTS.IN</strong>. We provide the latest information about Government Jobs, 
-            Admit Cards, and Results. Our mission is to help students find official updates quickly and easily.
-        </p>
-        <p>Hum rozana 133+ se zyada updates verify karke aap tak pahunchate hain.</p>
-        <a href="/" style="color: #ec4899; text-decoration: none; font-weight: bold;">← Back to Home</a>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Results.in</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --accent-cyan: #22d3ee;
+            --accent-pink: #ec4899;
+        }
+
+        body {
+            background: #0f172a;
+            color: white;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            background-image: radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        nav {
+            padding: 20px 9%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--glass-border);
+            backdrop-filter: blur(15px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .container { max-width: 1000px; margin: 60px auto; padding: 0 20px; }
+
+        .about-section {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 45px;
+            margin-bottom: 35px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        h2 { 
+            color: var(--accent-cyan); 
+            margin-bottom: 25px; 
+            font-weight: 800; 
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        p { color: #cbd5e1; line-height: 1.8; font-size: 16px; }
+
+        /* Developer Section */
+        .dev-flex { display: flex; align-items: center; gap: 40px; }
+        .dev-photo {
+            width: 160px;
+            height: 200px; /* Passport size */
+            border-radius: 20px;
+            border: 2px solid var(--accent-pink);
+            object-fit: cover;
+            background: #1e293b;
+            box-shadow: 0 10px 20px rgba(236, 72, 153, 0.2);
+        }
+
+        /* Contact Section */
+        .contact-box {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+            padding: 35px;
+            border-radius: 25px;
+            text-align: center;
+            border: 1px dashed var(--glass-border);
+        }
+
+        .email-link {
+            color: var(--accent-pink);
+            font-size: 26px;
+            text-decoration: none;
+            font-weight: 800;
+            transition: 0.3s;
+        }
+
+        .email-link:hover { color: var(--accent-cyan); text-shadow: 0 0 15px var(--accent-cyan); }
+
+        @media (max-width: 768px) {
+            .dev-flex { flex-direction: column; text-align: center; }
+            .about-section { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" style="font-size: 24px; font-weight: 800; text-decoration: none; color: #fff;">RESULTS<span style="color:var(--accent-pink)">.IN</span></a>
+        <a href="/" style="color: #fff; text-decoration: none; font-weight: 700; font-size: 14px; border: 1px solid var(--glass-border); padding: 8px 20px; border-radius: 50px;">← BACK TO HOME</a>
+    </nav>
+
+    <div class="container">
+        <div class="about-section">
+            <h2>🌐 Our Mission</h2>
+            <p>Welcome to <strong>Results.in</strong>, India's premier digital destination for real-time career updates. Our mission is simple: to empower every job seeker by providing the fastest and most accurate information regarding <strong>Government Jobs, Competitive Exam Results, and Admit Cards</strong>.</p>
+            <p>In a world of information overload, we pride ourselves on delivering a clean, ad-free, and highly organized experience, ensuring that you never miss a deadline or an opportunity to build your future.</p>
+        </div>
+
+        <div class="about-section">
+            <h2>👨‍💻 Behind the Code</h2>
+            <div class="dev-flex">
+                <img src="photo.jpeg" alt="Developer Photo" class="dev-photo">
+                <div>
+                    <h3 style="margin:0; font-size: 26px; color: #fff;">The Lead Developer</h3>
+                    <p style="color: var(--accent-pink); font-weight: 700; margin-top: 5px; text-transform: uppercase; font-size: 13px;">Full Stack Software Engineer</p>
+                    <p>I built this platform with a vision to bridge the gap between technology and employment. Leveraging the power of <strong>Django and Modern Web Architectures</strong>, I've designed Results.in to be lightweight, lightning-fast, and accessible for millions of students across Bharat.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-section">
+            <h2>📧 Connect With Us</h2>
+            <div class="contact-box">
+                <p style="margin-bottom: 15px;">Have a query, suggestion, or feedback? We'd love to hear from you.</p>
+                <a href="mailto:results@gmail.com" class="email-link">results@gmail.com</a>
+                <p style="margin-top: 20px; font-size: 14px; color: #64748b;">We typically respond to all inquiries within 24 business hours.</p>
+            </div>
+        </div>
     </div>
+
+    <footer style="text-align: center; padding: 40px; color: rgba(255,255,255,0.3); font-size: 13px; border-top: 1px solid var(--glass-border);">
+        &copy; 2025 Results.in | India's Most Trusted Career Portal
+    </footer>
+
 </body>
 </html>
