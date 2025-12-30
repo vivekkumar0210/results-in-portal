@@ -30,6 +30,8 @@ SECRET_KEY = 'django-insecure-l6#@s4&*7s(a99dq2(fo29wgo7zwv3w!4z-9(tat&)ph*bdboi
 DEBUG = True
 # Isse Render aur aapka apna domain dono allow ho jayenge
 ALLOWED_HOSTS = ['results-in-portal.onrender.com', 'results.in', 'www.results.in', '.onrender.com']
+# Isse Render aur aapka apna computer dono allow ho jayenge
+
 
 
 
@@ -86,19 +88,26 @@ WSGI_APPLICATION = 'results_in.wsgi.application'
 
 
 
-DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL')
-    )
-}
-
-# Aiven MySQL ke liye ye SSL configuration jodein
-DATABASES['default']['OPTIONS'] = {
-    'ssl': {'ca': None},
-    'charset': 'utf8mb4',  # Ye line symbols ko sahi karegi
-    'use_unicode': True,
-}
-
+# Database configuration
+# Pehle check karein ki hum Render par hain ya Local par
+if os.environ.get('DATABASE_URL'):
+    # Render (MySQL) ke liye
+    DATABASES = {
+        'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+    }
+    # MySQL specific options
+    DATABASES['default']['OPTIONS'] = {
+        'ssl': {'ca': None},
+        'charset': 'utf8mb4',
+    }
+else:
+    # Local Computer (SQLite) ke liye - Preview ke liye best
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
@@ -143,3 +152,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
