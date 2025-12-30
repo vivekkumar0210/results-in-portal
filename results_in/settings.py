@@ -83,11 +83,17 @@ WSGI_APPLICATION = 'results_in.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 
-# Purana 'default' wala block hata kar ye likhein
+
+
 DATABASES = {
     'default': dj_database_url.config(
         default=os.environ.get('DATABASE_URL')
     )
+}
+
+# Aiven MySQL ke liye ye SSL configuration jodein
+DATABASES['default']['OPTIONS'] = {
+    'ssl': {'ca': None}  # Isse ssl-mode ka error khatam ho jayega
 }
 
 
