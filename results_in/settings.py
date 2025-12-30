@@ -93,7 +93,9 @@ DATABASES = {
 
 # Aiven MySQL ke liye ye SSL configuration jodein
 DATABASES['default']['OPTIONS'] = {
-    'ssl': {'ca': None}  # Isse ssl-mode ka error khatam ho jayega
+    'ssl': {'ca': None},
+    'charset': 'utf8mb4',  # Ye line symbols ko sahi karegi
+    'use_unicode': True,
 }
 
 
