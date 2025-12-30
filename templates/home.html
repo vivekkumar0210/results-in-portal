@@ -138,18 +138,6 @@
     </style>
 </head>
 <body>
-<nav>
-    <a href="/" class="nav-logo">RESULTS<span>.IN</span></a>
-    <div class="nav-links">
-        <a href="/">HOME</a>
-        <a href="javascript:void(0)" onclick="filterSection('jobs')">LATEST JOB</a>
-        <a href="javascript:void(0)" onclick="filterSection('results')">LATEST RESULT</a>
-        <a href="javascript:void(0)" onclick="filterSection('admits')">ADMIT CARD</a>
-        
-        <a href="{% url 'about_us' %}">ABOUT US</a>
-        <a href="{% url 'contact_us' %}">CONTACTS</a>
-    </div>
-</nav>
     <header class="mega-header">
         <p class="hero-text">SEARCH YOUR JOBS</p>
         <div class="giant-logo">RESULTS<span>.IN</span></div>
@@ -160,6 +148,17 @@
                 <button type="submit" class="search-btn">FIND NOW</button>
             </form>
         </div>
+        <nav>
+    <div class="nav-links">
+        <a href="/">HOME</a>
+        <a href="javascript:void(0)" onclick="filterSection('jobs')">LATEST JOB</a>
+        <a href="javascript:void(0)" onclick="filterSection('results')">LATEST RESULT</a>
+        <a href="javascript:void(0)" onclick="filterSection('admits')">ADMIT CARD</a>
+        
+        <a href="{% url 'about_us' %}">ABOUT US</a>
+        <a href="{% url 'contact_us' %}">CONTACTS</a>
+    </div>
+</nav>
     </header>
 
     <div class="grid-container">
