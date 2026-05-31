@@ -28,9 +28,10 @@ SECRET_KEY = 'django-insecure-l6#@s4&*7s(a99dq2(fo29wgo7zwv3w!4z-9(tat&)ph*bdboi
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-# Isse Render aur aapka apna domain dono allow ho jayenge
-ALLOWED_HOSTS = ['results-in-portal.onrender.com', 'results.in', 'www.results.in', '.onrender.com']
-# Isse Render aur aapka apna computer dono allow ho jayenge
+
+
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'results-in-portal.onrender.com']
+
 
 
 
