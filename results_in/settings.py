@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-l6#@s4&*7s(a99dq2(fo29wgo7zwv3w!4z-9(tat&)ph*bdboi
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'results-in-portal.onrender.com']
+ALLOWED_HOSTS = ['results-in-portal.vercel.app', '.vercel.app', '127.0.0.1', 'localhost']
 
 
 
