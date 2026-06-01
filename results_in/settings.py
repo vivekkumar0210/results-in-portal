@@ -66,12 +66,17 @@ WSGI_APPLICATION = 'results_in.wsgi.application'
 # Agar Vercel par hoga toh DATABASE_URL environment variable uthayega, 
 # Nahi toh local machine par chalane ke liye niche dictionary format use karega.
 
-if os.environ.get('DATABASE_URL'):
+# Database Configuration - Final Bypass
+if os.environ.get('DB_HOST'):
     DATABASES = {
-        'default': dj_database_url.config(
-            default=os.environ.get('DATABASE_URL'),
-            conn_max_age=600
-        )
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.environ.get('DB_NAME', 'postgres'),
+            'USER': os.environ.get('DB_USER'),
+            'PASSWORD': os.environ.get('DB_PASSWORD'),
+            'HOST': os.environ.get('DB_HOST'),
+            'PORT': os.environ.get('DB_PORT', '5432'),
+        }
     }
 else:
     DATABASES = {
