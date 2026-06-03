@@ -87,19 +87,6 @@ else:
         }
     }
 
-# Agar Vercel variable nahi milta (yaani local pc par), toh ye niche wala direct block chalega
-if not os.environ.get('DATABASE_URL'):
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'postgres',
-            'USER': 'postgres',
-            'PASSWORD': 'vivek1122results',  # <-- Yahan naya password bina @ ke daal diya
-            'HOST': 'db.gddqbcjculvpiwgscome.supabase.co',
-            'PORT': '5432',
-        }
-    }
-
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
