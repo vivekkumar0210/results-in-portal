@@ -69,18 +69,10 @@ WSGI_APPLICATION = 'results_in.wsgi.application'
 import os
 import dj_database_url
 
-DATABASE_URL = os.environ.get("DATABASE_URL")
-
-if DATABASE_URL:
-    DATABASES = {
-        "default": dj_database_url.parse(DATABASE_URL)
-    }
-else:
-    DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+DATABASES = {
+    "default": dj_database_url.parse(
+        "postgresql://postgres.gddqbcjculvpiwgscome:vivek1122results@aws-1-ap-south-1.pooler.supabase.com:6543/postgres"
+    )
 }
 
 
