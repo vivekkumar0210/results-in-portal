@@ -69,12 +69,23 @@ WSGI_APPLICATION = 'results_in.wsgi.application'
 import os
 import dj_database_url
 
-DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL'),
-        conn_max_age=600
-    )
-}
+DATABASE_URL = os.environ.get("DATABASE_URL")
+
+if DATABASE_URL:
+    DATABASES = {
+        "default": dj_database_url.parse(DATABASE_URL)
+    }
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": "postgres",
+            "USER": "postgres.gddqbcjculvpiwgscome",
+            "PASSWORD": "vivek1122results",
+            "HOST": "aws-1-ap-south-1.pooler.supabase.com",
+            "PORT": "6543",
+        }
+    }
 
 # Agar Vercel variable nahi milta (yaani local pc par), toh ye niche wala direct block chalega
 if not os.environ.get('DATABASE_URL'):
