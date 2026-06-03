@@ -77,15 +77,11 @@ if DATABASE_URL:
     }
 else:
     DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.postgresql",
-            "NAME": "postgres",
-            "USER": "postgres.gddqbcjculvpiwgscome",
-            "PASSWORD": "vivek1122results",
-            "HOST": "aws-1-ap-south-1.pooler.supabase.com",
-            "PORT": "6543",
-        }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
+}
 
 
 # Password validation
